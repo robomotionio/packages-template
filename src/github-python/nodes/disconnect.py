@@ -6,7 +6,7 @@ from robomotion.message import Context
 from common import api_key_store
 from icon import github_icon
 
-@register_node(name='Robomotion.GitHub.Connect', title='Connect', color='#0D4082', icon=github_icon)
+@register_node(name='Robomotion.GitHub.Disconnect', title='Disconnect', color='#0D4082', icon=github_icon)
 class Disconnect(Node):
     def __init__(self):
         super().__init__()
@@ -28,9 +28,8 @@ class Disconnect(Node):
 
         conn_id = self.in_conn_id.get(ctx)
         if not conn_id:
-            raise ValueError("Connection Id can not be empty")
+            raise ValueError("Connection Id cannot be empty")
 
-       
         api_key_store.delete_api_key(conn_id)
 
     def on_close(self):
