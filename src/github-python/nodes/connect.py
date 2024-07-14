@@ -1,10 +1,10 @@
 from robomotion.node import Node
 from robomotion.decorators import register_node
-from robomotion.variable import OutVariable, Credentials, VaultItemCategory
+from robomotion.variable import OutVariable, OptVariable, Credentials, VaultItemCategory
 from robomotion.message import Context
 
-from common import api_key_store
-from icon import github_icon
+from nodes.common import github_auth_manager
+from nodes.icon import github_icon
 
 @register_node(name='Robomotion.GitHub.Connect', title='Connect', color='#0D4082', icon=github_icon)
 class Connect(Node):
@@ -21,6 +21,15 @@ class Connect(Node):
         )
 
         # Options
+        self.opt_base_url = OptVariable(
+            title='Base URL',
+            description='Only need if you are using Github Enterprise with custom hostname',
+            type='String',
+            scope='Message',
+            name='base_url',
+            messageScope=True
+        )
+        
         self.opt_api_key = Credentials(
             title='API Key', 
             category=VaultItemCategory.Token
@@ -38,8 +47,10 @@ class Connect(Node):
         api_key = vault_item["value"]
         if not api_key:
             raise ValueError("API Key cannot be empty")
+
+        base_url = self.opt_base_url.get(ctx)
         
-        conn_id = api_key_store.add_api_key(api_key)
+        conn_id = github_auth_manager.create_github_object(api_key, base_url)
         
         self.out_conn_id.set(ctx, conn_id)
 

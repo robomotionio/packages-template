@@ -3,8 +3,8 @@ from robomotion.decorators import register_node
 from robomotion.variable import InVariable
 from robomotion.message import Context
 
-from common import api_key_store
-from icon import github_icon
+from nodes.common import github_auth_manager
+from nodes.icon import github_icon
 
 @register_node(name='Robomotion.GitHub.Disconnect', title='Disconnect', color='#0D4082', icon=github_icon)
 class Disconnect(Node):
@@ -30,7 +30,7 @@ class Disconnect(Node):
         if not conn_id:
             raise ValueError("Connection Id cannot be empty")
 
-        api_key_store.delete_api_key(conn_id)
+        github_auth_manager.delete_github_object(conn_id)
 
     def on_close(self):
         return
