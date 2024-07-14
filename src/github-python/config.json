@@ -1,0 +1,35 @@
+{
+	"name": "GitHub",
+    "namespace": "Robomotion.GitHub",
+    "description": " This package enables you to manage GitHub resources such as repositories, user profiles, and organizations in your flows.",
+    "version": "1.0.4",
+    "categories": ["Dev Tools"],
+    "icon": "icon.png",
+    "author": {
+		"name": "Robomotion IO",
+		"email": "support@robomotion.io"
+	},
+    "keywords": ["git", "github", "code"],
+	"language": "Python", 
+    "platforms": ["windows","linux","darwin"],
+    "scripts": {
+        "windows": {
+            "build": [
+                "pyinstaller --onefile main.py -n robomotion-github.exe"
+            ],
+            "run": "robomotion-github.exe"
+        },
+        "linux": {
+            "build": [
+                "pyinstaller --onefile main.py -n robomotion-github"
+            ],
+            "run": "robomotion-github"
+        },
+        "darwin": {
+            "build": [
+                "pyinstaller --onefile main.py -n robomotion-github"
+            ],
+            "run": "robomotion-github"
+        }
+    }
+}
