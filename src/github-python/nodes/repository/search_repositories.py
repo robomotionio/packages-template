@@ -6,7 +6,7 @@ from robomotion.message import Context
 from nodes.auth_manager import github_auth_manager
 from nodes.icon import github_icon
 
-@register_node(name='Robomotion.GitHub.SearchRepos', title='Search Repositories', color='#0D4082', icon=github_icon)
+@register_node(name='Robomotion.GitHub.Repository.SearchRepos', title='Search Repositories', color='#0D4082', icon=github_icon)
 class SearchRepos(Node):
     def __init__(self):
         super().__init__()
@@ -24,14 +24,16 @@ class SearchRepos(Node):
         self.in_query = Variable(
             title='Query',
             type='String',
-            scope='Message',
-            name='query'
+            scope='Custom',
+            name='',
+            customScope=True,
+            messageScope=True            
         )
 
         # Output
         self.out_repos = OutVariable(
             title='Repositories',
-            type='List',
+            type='Object',
             scope='Message',
             name='repositories',
             messageScope=True

@@ -6,7 +6,7 @@ from robomotion.message import Context
 from nodes.auth_manager import github_auth_manager
 from nodes.icon import github_icon
 
-@register_node(name='Robomotion.GitHub.ListRepos', title='List Repositories', color='#0D4082', icon=github_icon)
+@register_node(name='Robomotion.GitHub.Repository.ListRepos', title='List Repositories', color='#0D4082', icon=github_icon)
 class ListRepos(Node):
     def __init__(self):
         super().__init__()

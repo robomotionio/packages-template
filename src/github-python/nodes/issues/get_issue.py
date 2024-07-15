@@ -6,7 +6,7 @@ from robomotion.message import Context
 from nodes.auth_manager import github_auth_manager
 from nodes.icon import github_icon
 
-@register_node(name='Robomotion.GitHub.GetIssue', title='Get Issue', color='#0D4082', icon=github_icon)
+@register_node(name='Robomotion.GitHub.Issues.GetIssue', title='Get Issue', color='#0D4082', icon=github_icon)
 class GetIssue(Node):
     def __init__(self):
         super().__init__()
@@ -17,22 +17,25 @@ class GetIssue(Node):
             type='String',
             scope='Message',
             name='connection_id',
-            customScope=True,
             messageScope=True
         )
 
         self.in_repo_name = InVariable(
             title='Repository Name',
             type='String',
-            scope='Message',
-            name='repo_name'
+            scope='Custom',
+            name='',
+            customScope=True,
+            messageScope=True            
         )
 
         self.in_issue_number = InVariable(
             title='Issue Number',
             type='Integer',
-            scope='Message',
-            name='issue_number'
+            scope='Custom',
+            name='',
+            customScope=True,
+            messageScope=True            
         )
 
         # Output
