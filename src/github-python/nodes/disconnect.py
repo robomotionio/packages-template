@@ -3,7 +3,7 @@ from robomotion.decorators import register_node
 from robomotion.variable import InVariable
 from robomotion.message import Context
 
-from nodes.common import github_auth_manager
+from nodes.auth_manager import github_auth_manager
 from nodes.icon import github_icon
 
 @register_node(name='Robomotion.GitHub.Disconnect', title='Disconnect', color='#0D4082', icon=github_icon)

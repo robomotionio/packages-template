@@ -1,10 +1,8 @@
 from robomotion import package
-
-# Ensure all nodes are imported
-import init
+from init import *
 
 def main():
-    package.run()
+    package.start()
 
 if __name__ == "__main__":
     main()
