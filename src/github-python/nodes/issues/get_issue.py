@@ -3,8 +3,8 @@ from robomotion.decorators import register_node
 from robomotion.variable import InVariable, OutVariable
 from robomotion.message import Context
 
-from common import github_auth_manager
-from icon import github_icon
+from nodes.auth_manager import github_auth_manager
+from nodes.icon import github_icon
 
 @register_node(name='Robomotion.GitHub.GetIssue', title='Get Issue', color='#0D4082', icon=github_icon)
 class GetIssue(Node):

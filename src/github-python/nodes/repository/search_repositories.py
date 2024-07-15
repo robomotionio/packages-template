@@ -3,8 +3,8 @@ from robomotion.decorators import register_node
 from robomotion.variable import InVariable, OutVariable, Variable
 from robomotion.message import Context
 
-from common import github_auth_manager
-from icon import github_icon
+from nodes.auth_manager import github_auth_manager
+from nodes.icon import github_icon
 
 @register_node(name='Robomotion.GitHub.SearchRepos', title='Search Repositories', color='#0D4082', icon=github_icon)
 class SearchRepos(Node):
