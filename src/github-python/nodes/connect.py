@@ -25,9 +25,10 @@ class Connect(Node):
             title='Base URL',
             description='Only need if you are using Github Enterprise with custom hostname',
             type='String',
-            scope='Message',
-            name='base_url',
-            messageScope=True
+            scope='Custom',
+            name='',
+            messageScope=True,
+            customScope=True
         )
         
         self.opt_api_key = Credentials(

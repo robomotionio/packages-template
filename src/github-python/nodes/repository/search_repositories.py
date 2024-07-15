@@ -21,7 +21,7 @@ class SearchRepos(Node):
             messageScope=True
         )
 
-        self.in_query = Variable(
+        self.in_query = InVariable(
             title='Query',
             type='String',
             scope='Custom',
